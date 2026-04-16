@@ -1,0 +1,14 @@
+<h1>Detalle de Producción #{{ lote_p.codigo_seguimiento }}</h1>
+<p><strong>Estado:</strong> {{ lote_p.estado }}</p>
+<p><strong>Fecha:</strong> {{ lote_p.fecha_creacion }}</p>
+
+<h3>Lotes de Materia Prima Incluidos:</h3>
+<ul>
+    {% for materia in lote_p.lotes_materia_prima.all %}
+    <li>Lote #{{ materia.codigo }} - Productor: {{ materia.productor }}</li>
+    {% empty %}
+    <li>No hay lotes asignados.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'lista_produccion' %}">Volver al listado</a>

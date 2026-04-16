@@ -1,0 +1,23 @@
+<h1>Lotes de Producción</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID Seguimiento</th>
+            <th>Fecha Creación</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lote in lotes %}
+        <tr>
+            <td>#{{ lote.codigo_seguimiento }}</td>
+            <td>{{ lote.fecha_creacion }}</td>
+            <td>{{ lote.estado }}</td>
+            <td><a href="{% url 'detalle_produccion' lote.id %}">Ver Detalle</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<a href="{% url 'lista_lotes' %}">Ir a Materia Prima</a>

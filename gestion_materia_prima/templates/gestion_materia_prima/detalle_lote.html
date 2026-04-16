@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle Lote #{{ lote.codigo }}</title>
+</head>
+<body>
+    <h1>Información del Lote</h1>
+    <hr>
+    <ul>
+        <li><strong>Código Completo:</strong> {{ lote.codigo }}</li>
+        <li><strong>Productor:</strong> {{ lote.productor }}</li>
+        <li><strong>Fecha de Cosecha:</strong> {{ lote.fecha_cosecha }}</li>
+        <li><strong>Fecha de Arribo a Planta:</strong> {{ lote.fecha_arribo }}</li>
+        <br>
+        <li><strong>Peso Bruto:</strong> {{ lote.peso_bruto }} kg</li>
+        <li><strong>Peso Tara:</strong> {{ lote.peso_tara }} kg</li>
+        <li><strong>Peso Neto:</strong> {{ lote.peso_neto }} kg</li>
+        <br>
+        <li><strong>Estado Actual:</strong> {{ lote.estado }}</li>
+    </ul>
+
+    <a href="{% url 'lista_lotes' %}">← Volver al listado de lotes</a>
+</body>
+</html>

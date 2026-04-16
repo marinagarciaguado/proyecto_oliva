@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cooperativa - Materia Prima</title>
+</head>
+<body>
+    <h1>Lotes de Materia Prima</h1>
+    <p>Gestión de lotes de olivas recibidas</p>
+
+    <table border="1" style="width:100%; border-collapse: collapse; text-align: left;">
+        <thead style="background-color: #f2f2f2;">
+            <tr>
+                <th>Código Lote</th>
+                <th>Productor</th>
+                <th>Peso Neto (kg)</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lote in lotes %}
+            <tr>
+                <td>#{{ lote.codigo }}</td>
+                <td>{{ lote.productor.nombre }} {{ lote.productor.apellidos }}</td>
+                <td>{{ lote.peso_neto }}</td>
+                <td><strong>{{ lote.estado }}</strong></td>
+                <td>
+                    <a href="{% url 'detalle_lote' lote.id %}">Ver Detalle</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No hay lotes registrados actualmente.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
